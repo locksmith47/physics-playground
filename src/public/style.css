@@ -1,0 +1,13 @@
+body {
+  background-color: black;
+}
+
+#playarea-wrapper {
+  display: flex;
+}
+
+#playarea {
+  background-color: #242424;
+  width: 800px;
+  height: 800px;
+}
