@@ -1,15 +1,12 @@
 import { Vector2D } from "../Vector2D.js";
 import { Transform } from "./Transform.js";
 
-export abstract class GameObject {
+export abstract class CollisionBody {
   transform: Transform;
-  velocity: Vector2D;
 
-  constructor(transform?: Transform, velocity?: Vector2D) {
+  constructor(transform?: Transform) {
     this.transform = transform || new Transform();
-    this.velocity = velocity || new Vector2D();
   }
-
-  abstract update(timeElapsedMs: number): void;
+  abstract collide(collisionBody: CollisionBody): Vector2D | null;
   abstract draw(ctx: CanvasRenderingContext2D): void;
 }

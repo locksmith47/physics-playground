@@ -1,12 +1,9 @@
 import { GameObject } from "./GameObject.js";
-import { Vector2D } from "../Vector2D.js";
+import { Transform } from "./Transform.js";
 
 export class MouseFollower extends GameObject {
-  position: Vector2D;
-
-  constructor(position?: Vector2D) {
-    super(position);
-    this.position = position || new Vector2D(0, 0);
+  constructor(transform?: Transform) {
+    super(transform);
   }
 
   update() {
@@ -16,7 +13,15 @@ export class MouseFollower extends GameObject {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.fillStyle = "blue";
     ctx.beginPath();
-    ctx.ellipse(this.position.x, this.position.y, 20, 20, 0, 0, 2 * Math.PI);
+    ctx.ellipse(
+      this.transform.position.x,
+      this.transform.position.y,
+      20,
+      20,
+      0,
+      0,
+      2 * Math.PI
+    );
     ctx.fill();
   }
 }
